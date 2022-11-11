@@ -89,3 +89,22 @@ var finances = [
 
 //total number of months in data set 
 console.log("Total months: " + finances.length + " months");
+
+// net total: Sum of all [j] in nested arrays 
+// create a loop that runs from the first [j] within the array for var i=0; i less than # of months, i++, 
+// have a variable for total that calculates the sum of the profits  
+//var total; 
+//within the for loop: total += finances([i][1]) 
+
+var total = 0; 
+for (var i = 0; i < finances.length; i++) { 
+    total += finances[i][1]; //the symbol += works out the cumulative total, it adds the value on the right to the var total
+}                           // then it stores it inside the var total
+console.log("Net total: " + total); // so first total=0, then inside the for loop finances[i][1], will be finances[0][1]
+//this is because i is first set to zero. So finances[0][1]= 867884. As we are now doing total += finances[0][1], 
+//total will now add the value on the right and becomes the cumalative total of the original total number + the value on the right
+// so total will be 0 + 867884 
+// after this loop, i is iterated by 1, so i is now 1. so finances[i][0] is now finances[1][1] as i is now zero 
+// so this selects the number in the 2nd array. 
+//now that total is now total += finances[1][1], it will be the cumulative total of the number stored in total (867884) + the number in the 2nd array. 
+//This carries on until we get to the final index number in the list of arrays
