@@ -85,4 +85,7 @@ var finances = [
 ['Dec-2016', 60988],
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
-];
+]; 
+
+//total number of months in data set 
+console.log(finances.length);
