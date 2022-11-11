@@ -108,3 +108,19 @@ console.log("Net total: " + total); // so first total=0, then inside the for loo
 // so this selects the number in the 2nd array. 
 //now that total is now total += finances[1][1], it will be the cumulative total of the number stored in total (867884) + the number in the 2nd array. 
 //This carries on until we get to the final index number in the list of arrays
+
+//average change 
+//work out the different between two months, then add then up 
+ //[1][1]-[0][1]=
+ //[2][1]-[1][1]= and so forth
+ //maybe var diff= 0; 
+ // within the for loop:if 1=0 diff+= finances[i +1][1]-finances[i][1] 
+ // after 1st iteration: i=1, so diff+= finances[1+1][1]-finances[1][1] 
+ var diff = 867884; /// make the value of diff the value for January
+for (var i = 0; i < 85; i++) { 
+    diff += finances[i+1][1] -  finances[i][1]; 
+} 
+var averChange = diff / finances.length; 
+console.log("Average change: " + averChange); 
+//method works!! Only if you set your starting value to the value for January
+//you also need to make the last index to be 85 as there is no index after 85
