@@ -1,11 +1,11 @@
 var finances = [
-['Jan-2010', 867884],
-['Feb-2010', 984655],
-['Mar-2010', 322013],
-['Apr-2010', -69417],
-['May-2010', 310503],
-['Jun-2010', 522857],
-['Jul-2010', 1033096],
+['Jan-2010', 867884], // position [0][1]-the first squar bracket is the index number of the array ['Jan-2010', 867884]
+['Feb-2010', 984655], //the 2nd square bracket is the index number of the array within that array 
+['Mar-2010', 322013], // so [0][1] is the position of 867884 and [0][0] is the position of Jan-2010 
+['Apr-2010', -69417], // to get the 2nd array in the data set, its index number is 1, so to access the number in the 2nd array,
+['May-2010', 310503], // its position is [1][1], think of it as [i][j]
+['Jun-2010', 522857],// so all the array numbers, nested insidse the array will have their [j]=[1]
+['Jul-2010', 1033096],// all that changes is the [i]
 ['Aug-2010', 604885],
 ['Sep-2010', -216386],
 ['Oct-2010', 477532],
