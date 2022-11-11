@@ -88,4 +88,4 @@ var finances = [
 ]; 
 
 //total number of months in data set 
-console.log(finances.length);
+console.log("Total months: " + finances.length + " months");
