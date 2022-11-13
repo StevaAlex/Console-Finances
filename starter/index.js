@@ -87,6 +87,9 @@ var finances = [
 ['Feb-2017', 671099]
 ]; 
 
+
+console.log("Financial Analysis"); 
+console.log("...................");
 //total number of months in data set 
 console.log("Total months: " + finances.length + " months");
 
@@ -121,7 +124,7 @@ for (var i = 0; i < finances.length - 1; i++) {
     diff += finances[i+1][1] -  finances[i][1]; 
 } 
 var averChange = diff / finances.length; 
-console.log("Average change: $" + averChange.toFixed(2)); //.toFixed(2) rounds to 2 decimal places
+console.log("Average Change: " + averChange.toFixed(2)); //.toFixed(2) rounds to 2 decimal places
 //method works!! Only if you set your starting value to the value for January
 //you also need to make the last index to be 85 as there is no index after 85
 
@@ -129,7 +132,10 @@ console.log("Average change: $" + averChange.toFixed(2)); //.toFixed(2) rounds t
 //work out greatest profits and greatest loss 
 
 //Greatest profit  
-
+//run through the loop as above 
+//add if function that stores the biggest positive function
+//create variable that stores this biggest positive number
+//if diff > greatestIncrease then it will equal that finances array item
 
 var greatestIncrease = 0;
 var index = 0;
@@ -137,11 +143,12 @@ for (var i = 0; i < finances.length - 1; i++) {
      diff = finances[i+1][1] -  finances[i][1];
     if ( diff > greatestIncrease ) { 
         greatestIncrease = finances[i+1][1];
-        index = i+1;
+        index = i+1; //doing this creates a variable that stores the index number for the array item with the greatest increase
     }
 } 
-console.log(finances[index]);  
-
+console.log("Greatest Increase: " + finances[index][0] + ": $" + finances[index][1]);  
+//print the greatest increase using the index var 
+//use [index][0] to print the date, and [index][1] to print the amount
 //Greatest decrease 
 var greatestDecrease = 0; 
 var index = 0;
@@ -152,4 +159,4 @@ for (var i = 0; i < finances.length - 1; i++) {
         index = i+1;                            // has been run through ie the whole array has been compared, the index number which
     }                                           //is stored as the greatest decrease is the one with the more negative number
 }                                               //or the greatest decreases
-console.log(finances[index]); 
+console.log("Greatest Decrease: " + finances[index][0] + ": $" + finances[index][1]);  
