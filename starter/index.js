@@ -100,7 +100,7 @@ var total = 0;
 for (var i = 0; i < finances.length; i++) { 
     total += finances[i][1]; //the symbol += works out the cumulative total, it adds the value on the right to the var total
 }                           // then it stores it inside the var total
-console.log("Net total: " + total); // so first total=0, then inside the for loop finances[i][1], will be finances[0][1]
+console.log("Net total: $" + total); // so first total=0, then inside the for loop finances[i][1], will be finances[0][1]
 //this is because i is first set to zero. So finances[0][1]= 867884. As we are now doing total += finances[0][1], 
 //total will now add the value on the right and becomes the cumalative total of the original total number + the value on the right
 // so total will be 0 + 867884 
@@ -117,10 +117,39 @@ console.log("Net total: " + total); // so first total=0, then inside the for loo
  // within the for loop:if 1=0 diff+= finances[i +1][1]-finances[i][1] 
  // after 1st iteration: i=1, so diff+= finances[1+1][1]-finances[1][1] 
  var diff = 867884; /// make the value of diff the value for January
-for (var i = 0; i < 85; i++) { 
+for (var i = 0; i < finances.length - 1; i++) { 
     diff += finances[i+1][1] -  finances[i][1]; 
 } 
 var averChange = diff / finances.length; 
-console.log("Average change: " + averChange); 
+console.log("Average change: $" + averChange.toFixed(2)); //.toFixed(2) rounds to 2 decimal places
 //method works!! Only if you set your starting value to the value for January
 //you also need to make the last index to be 85 as there is no index after 85
+
+
+//work out greatest profits and greatest loss 
+
+//Greatest profit  
+
+
+var greatestIncrease = 0;
+var index = 0;
+for (var i = 0; i < finances.length - 1; i++) { 
+     diff = finances[i+1][1] -  finances[i][1];
+    if ( diff > greatestIncrease ) { 
+        greatestIncrease = finances[i+1][1];
+        index = i+1;
+    }
+} 
+console.log(finances[index]);  
+
+//Greatest decrease 
+var greatestDecrease = 0; 
+var index = 0;
+for (var i = 0; i < finances.length - 1; i++) { 
+     diff = finances[i+1][1] -  finances[i][1]; // after first loop diff= +ve which is not less that zero, so code in if 
+    if ( diff < greatestDecrease ) {            //is not executed 
+        greatestDecrease = finances[i+1][1];    //when diff = -ve then code in if is executed, and when the whole for loop
+        index = i+1;                            // has been run through ie the whole array has been compared, the index number which
+    }                                           //is stored as the greatest decrease is the one with the more negative number
+}                                               //or the greatest decreases
+console.log(finances[index]); 
